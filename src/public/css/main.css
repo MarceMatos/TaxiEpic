@@ -10,7 +10,19 @@ body{
     display: flex;
 }
 
-
+.right-panel {
+    width: 30%;
+    height: 100%;
+    background: linear-gradient(#54BBC7,#2EE3AD,#9191F2);
+    position: absolute;
+    top: 0;
+    left: -30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.7s;
+    z-index: 30;
+}
 
 #map-template {
     height: 100%;
@@ -87,19 +99,7 @@ b {
     border-radius: 0 0.5rem 0.5rem 0;
 }
 
-.left-panel {
-    width: 30%;
-    height: 100%;
-    background: linear-gradient(#54BBC7,#2EE3AD,#9191F2);
-    position: absolute;
-    top: 0;
-    left: -30%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: left 0.7s;
-    z-index: 30;
-}
+
 
 .checkbox:checked ~ .left-panel{
     left: 0;
