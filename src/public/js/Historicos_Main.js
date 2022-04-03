@@ -57,6 +57,24 @@ function ActualizarHistoricos(data){
         map.removeLayer(PolyLine);
     }
     
+    
+    //ciruclo
+    
+    
+    var circleCenter = [10.8892, -74.8194];
+    var circleOptions = {
+                   color: 'red',
+                   fillColor: '#f03',
+                   fillOpacity: 0
+                          }
+    var circle = L.circle(circleCenter, 50000, circleOptions);
+    circle.addTo(map);
+    
+    
+    
+    
+    
+    
     data.forEach(data => {
         HistoricsArray.push([data.latitud,data.longitud])
     })
