@@ -22,7 +22,7 @@
 
 <style>
   body { margin:0; padding:0; }
-  #map-template{ position:absolute; top:0; bottom:0; width:100%; }
+  #map{ position:absolute; top:0; bottom:0; width:100%; }
 </style>
 
 <body>
@@ -41,11 +41,11 @@
 <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.4.10/leaflet.draw.css' rel='stylesheet' />
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.4.10/leaflet.draw.js'></script>
 
-<div id='map-template'></div>
+<div id='map></div>
 
 <script>
 L.mapbox.accessToken = 'pk.eyJ1IjoibGFzcHJpbGxhbSIsImEiOiJjbDFqdGlvNm4xdXppM3FwOHE5d2YxOHh0In0.vqu096SdupLFc882Fo3BFg';
-  var map = L.mapbox.map-template('map-template')
+  var map = L.mapbox.map(map)
       .setView([10.994326, -74.805578], 14)
       .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
 
@@ -84,9 +84,9 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibGFzcHJpbGxhbSIsImEiOiJjbDFqdGlvNm4xdXppM3FwO
     edit: {
       featureGroup: featureGroup
     }
-  }).addTo(map-template);
+  }).addTo(map);
 
-  map-template.on('draw:created', function(e) {
+  map.on('draw:created', function(e) {
       featureGroup.addLayer(e.layer);
         var type = e.layerType;
            var layer = e.layer;
