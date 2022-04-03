@@ -81,6 +81,11 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibGFzcHJpbGxhbSIsImEiOiJjbDFqdGlvNm4xdXppM3FwO
 
   map.on('draw:created', function(e) {
       featureGroup.addLayer(e.layer);
+        var type = e.layerType;
+           var layer = e.layer;
+
+           var shape = layer.toGeoJSON()
+           var shape_for_db = JSON.stringify(shape);
   });
 </script>
 </body>
