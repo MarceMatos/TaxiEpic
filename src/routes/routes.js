@@ -10,6 +10,9 @@ router.get('/', (req,res) =>{
 router.get('/Historicos', (req,res) =>{
     res.render('Historicos');
 })
+router.get('/max', (req,res) =>{
+    res.render('max');
+})
 
 router.post('/github',(req,res)=>{
     exec('git reset --hard && git pull && npx pm2 restart App')
