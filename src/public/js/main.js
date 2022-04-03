@@ -4,9 +4,6 @@ TileURL = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 L.tileLayer(TileURL).addTo(map);
 PolyArray = [];
 
-Lat = 10.994326;
-Lon = -74.805578;
-map.setView([Lat,Lon],14);
 //Create icon for marker
 var MapIcon = L.Icon.extend({
     options: {
@@ -66,4 +63,3 @@ function UpdateMap(data){
     map.addLayer(marker);
     map.addLayer(PolyLine);
 }
-
