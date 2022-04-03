@@ -86,7 +86,7 @@ L.mapbox.accessToken = 'pk.eyJ1IjoibGFzcHJpbGxhbSIsImEiOiJjbDFqdGlvNm4xdXppM3FwO
     }
   }).addTo(map-template);
 
-  map.on('draw:created', function(e) {
+  map-template.on('draw:created', function(e) {
       featureGroup.addLayer(e.layer);
         var type = e.layerType;
            var layer = e.layer;
