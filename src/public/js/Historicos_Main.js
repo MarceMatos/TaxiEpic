@@ -67,7 +67,7 @@ function ActualizarHistoricos(data){
                    fillColor: '#f03',
                    fillOpacity: 0
                           }
-    var circle = L.circle(circleCenter, 50000, circleOptions);
+    var circle = L.circle(circleCenter, 500000, circleOptions);
     circle.addTo(map);
     
     
