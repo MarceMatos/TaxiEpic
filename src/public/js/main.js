@@ -1,4 +1,6 @@
-
+//Sockets for connection to the backend 
+const socket  = io();
+socket.emit('Client: StartPage')
 //Initialice the map
 var map = L.map('map-template');
 TileURL = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -27,10 +29,8 @@ longitud = document.getElementById('longitud')
 fecha = document.getElementById('fecha')
 hora = document.getElementById('hora')  
 
-//Sockets for connection to the backend 
-const socket  = io();
 
-socket.emit('Client: StartPage')
+
 
 //Connection for changed coords
 socket.on('Server: NewUserCoordenates',(data) =>{
