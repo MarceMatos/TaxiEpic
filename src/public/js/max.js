@@ -1,4 +1,5 @@
-
+const socket  = io();
+socket.emit('Client: HistoricsPage')
 
 //Initialice the map
 var map = L.map('map-template');
