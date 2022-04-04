@@ -21,6 +21,23 @@ var MapIcon = L.Icon.extend({
 })
 
 
+ var theMarker = {};
+
+  map.on('click',function(e){
+    lat = e.latlng.lat;
+    lon = e.latlng.lng;
+
+    console.log("You clicked the map at LAT: "+ lat+" and LONG: "+lon );
+        //Clear existing marker, 
+
+        if (theMarker != undefined) {
+              map.removeLayer(theMarker);
+        };
+
+    //Add a marker to show where you clicked.
+     theMarker = L.marker([lat,lon]).addTo(map);  
+});
+
 
 //id for historics button
 HistoricsForm = document.querySelector('#Historicos');
