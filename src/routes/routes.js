@@ -14,9 +14,6 @@ router.get('/max', (req,res) =>{
     res.render('max');
 })
 
-router.post('/github',(req,res)=>{
-    exec('git reset --hard && git pull && npx pm2 restart App')
-
 })
 const connection = require('../../database/db.js');
 module.exports = router;
