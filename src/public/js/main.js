@@ -63,4 +63,3 @@ function UpdateMap(data){
     map.addLayer(marker);
     map.addLayer(PolyLine);
 }
-
