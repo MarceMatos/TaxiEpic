@@ -61,7 +61,7 @@ function ActualizarHistoricos(data){
     //ciruclo
     
     
-    var circleCenter = [10.8892, -74.8194];
+    var circleCenter = [11.0178, -74.8204];
     var circleOptions = {
                    color: 'red',
                    fillColor: '#f03',
