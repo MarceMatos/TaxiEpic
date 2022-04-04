@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 const database = {
     host: process.env.HOST, 
-    user: process.env.USERR, 
+    user: process.env.USER, 
     database: process.env.DATABASE, 
     password: process.env.PASS 
 };
