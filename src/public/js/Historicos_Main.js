@@ -14,7 +14,7 @@ map.setView([Lat,Lon],14);
 //Create icon for marker
 var MapIcon = L.Icon.extend({
     options: {
-        iconSize: [40,40],
+        iconSize: [10,10],
         iconAnchor: [22,94],
         popupAnchor: [-3,-76]
     }
@@ -39,7 +39,7 @@ var circle2 = {};
 
     //Add a marker to show where you clicked.
      theMarker = L.marker([lat,lon]).addTo(map);
-     circle2 = L.circle([lat,lon], 200).addTo(map);
+     circle2 = L.circle([lat,lon], 400).addTo(map);
      circle = Wrld.circle([lat,lon], {
           color: "red",
           fillColor: "#f03",
