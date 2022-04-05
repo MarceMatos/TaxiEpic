@@ -22,7 +22,7 @@ var MapIcon = L.Icon.extend({
 
 //onclick
  var theMarker = {};
-
+var circle = {};
 var circle2 = {};
 
   map.on('click',function(e){
@@ -39,10 +39,16 @@ var circle2 = {};
 
     //Add a marker to show where you clicked.
      theMarker = L.marker([lat,lon]).addTo(map);
-     circle2 = L.CircleMarker([lat,lon], 400).addTo(map);
-     
+     circle2 = L.circle([lat,lon], 200).addTo(map);
+     circle = Wrld.circle([lat,lon], {
+          color: "red",
+          fillColor: "#f03",
+          fillOpacity: 0.6,
+          radius: 100.0,  
+                                        }).addTo(map); 
+});
 
-
+//circulo
 
  
 
