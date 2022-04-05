@@ -23,6 +23,7 @@ var MapIcon = L.Icon.extend({
 //onclick
  var theMarker = {};
 var circle = {};
+var circle2 = {};
 
   map.on('click',function(e){
     lat = e.latlng.lat;
@@ -37,6 +38,7 @@ var circle = {};
 
     //Add a marker to show where you clicked.
      theMarker = L.marker([lat,lon]).addTo(map);
+     circle2 = L.circle([lat,lon], 200).addTo(map);
      circle = Wrld.circle([lat,lon], {
           color: "red",
           fillColor: "#f03",
