@@ -1,67 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taxi Locator</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin="" />
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
-
-    
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-   
-
+<meta charset=utf-8 />
+<title>Show drawn polygon area</title>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
 </head>
 <body>
-    <div name="lateral bar">
-        <input type="checkbox" class="checkbox" id="check">
-        <label class="menu" for="check">|||</label>
-        <div class="left-panel">
-            <ul>
-                <a href="/"><li>Inicio</li></a>
-                <a href="/Historicos"><li>Históricos</li></a>
-                <a href="/marce"><li>marce</li></a>
-            </ul>
-        </div>
-    </div>
+<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.4.10/leaflet.draw.css' rel='stylesheet' />
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.4.10/leaflet.draw.js'></script>
+<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-geodesy/v0.1.0/leaflet-geodesy.js'></script>
 
+<div id='map'></div>
 
-    <div id="HistoricsContainer">
-        <label><b>Indicar tipo de busqueda:</b></label>
-        <div>
-            <button id="TimeButton" class="btn btn-primary m-2">Tiempo</button>
-            <button id="LocationButton" class="btn btn-primary m-2">Localización</button>
-        </div>
-        <div>
-            <label for="Date"><b>Fecha inicial</b></label>
-            <input type="text" id="Date" class="form-control" /> 
-            <label for="Hour_I"><b>Fecha final</b></label>
-            <input type="text" id="Hour" class="form-control">
-            <button id="Historicos" class="btn btn-primary m-2">Buscar</button>
-        </div>
-    
-    </div>
-    <div id="container">
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoibGFzcHJpbGxhbSIsImEiOiJjbDFqdGlvNm4xdXppM3FwOHE5d2YxOHh0In0.vqu096SdupLFc882Fo3BFg';
+var map = L.mapbox.map('map')
+    .setView([10.994326, -74.805578], 14)
+    .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/streets-v11'));
 
-    <div id="map-template">
+var featureGroup = L.featureGroup().addTo(map);
 
-    </div>
-                         
-                    
-    </div>
-   
-   
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
-    <script src="/socket.io/socket.io.min.js"></script>
-    <script src="/js/Historicos_Main.js"></script>
+var drawControl = new L.Control.Draw({
+  edit: {
+    featureGroup: featureGroup
+  },
+  draw: {
+    polygon: false,
+    polyline: false,
+    rectangle: false,
+    circle: true,
+    marker: false
+  }
+}).addTo(map);
 
-    <script src="/js/DateTimePicker.js"></script>
+map.on('draw:created', showCircleArea);
+map.on('draw:edited', showCircleAreaEdited);
 
-
+function showCircleAreaEdited(e) {
+  e.layers.eachLayer(function(layer) {
+    showCircleArea({ layer: layer });
+  });
+}
+function showCircleArea(e) {
+  featureGroup.clearLayers();
+  featureGroup.addLayer(e.layer);
+  e.layer.bindPopup((LGeo.area(e.layer) / 1000000).toFixed(2) + ' km<sup>2</sup>');
+  e.layer.openPopup();
+}
+</script>
 </body>
 </html>
