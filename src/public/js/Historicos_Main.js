@@ -41,7 +41,7 @@ var circle2 = {};
      theMarker = L.marker([lat,lon]).addTo(map);
      circle2 = L.circle([lat,lon], 200).addTo(map);
     
-
+                             };
 //circulo
 
  
