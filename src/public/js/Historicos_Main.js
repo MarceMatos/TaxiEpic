@@ -39,7 +39,7 @@ var circle2 = {};
 
     //Add a marker to show where you clicked.
      theMarker = L.marker([lat,lon]).addTo(map);
-     circle2 = L.circle([lat,lon], 200).addTo(map);
+     circle2 = L.circle([lat,lon], 300).addTo(map);
     
                              })
 //circulo
