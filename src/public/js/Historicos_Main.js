@@ -20,32 +20,9 @@ var MapIcon = L.Icon.extend({
     }
 })
 
-//onclick
- var theMarker = {};
 
-  map.on('click',function(e){
-    lat = e.latlng.lat;
-    lon = e.latlng.lng;
 
-    console.log("You clicked the map at LAT: "+ lat+" and LONG: "+lon );
-        //Clear existing marker, 
 
-        if (theMarker != undefined) {
-              map.removeLayer(theMarker);
-        };
-
-    //Add a marker to show where you clicked.
-     theMarker = L.marker([lat,lon]).addTo(map);  
-});
-
-//circulo
-
- var circle = Wrld.circle([lat,lon], {
-          color: "red",
-          fillColor: "#f03",
-          fillOpacity: 0.5,
-          radius: 50.0
-      }).addTo(map); 
 
 
 //id for historics button
