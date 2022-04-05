@@ -20,7 +20,7 @@ var MapIcon = L.Icon.extend({
     }
 })
 
-
+//onclick
  var theMarker = {};
 
   map.on('click',function(e){
@@ -37,6 +37,15 @@ var MapIcon = L.Icon.extend({
     //Add a marker to show where you clicked.
      theMarker = L.marker([lat,lon]).addTo(map);  
 });
+
+//circulo
+
+ var circle = Wrld.circle([lat,lon], {
+          color: "red",
+          fillColor: "#f03",
+          fillOpacity: 0.5,
+          radius: 50.0
+      }).addTo(map); 
 
 
 //id for historics button
@@ -75,18 +84,7 @@ function ActualizarHistoricos(data){
     }
     
     
-    //ciruclo
-    
-    
-    var circleCenter = [11.0178, -74.8204];
-    var circleOptions = {
-                   color: 'red',
-                   fillColor: '#f03',
-                   fillOpacity: 0
-                          }
-    var circle = L.circle(circleCenter, 500000, circleOptions);
-    circle.addTo(map);
-    
+   
     
     
     
