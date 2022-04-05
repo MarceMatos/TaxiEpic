@@ -40,6 +40,14 @@ var circle2 = {};
     //Add a marker to show where you clicked.
      theMarker = L.marker([lat,lon]).addTo(map);
      circle2 = L.circle([lat,lon], 300).addTo(map);
+     circle= L.circleMarker([lat,lon], {
+                                            radius: 500.0,
+                                            fillColor: 'red',
+                                            color: '#FFFFFF',
+                                            weight: 2,
+                                            opacity: 1.0,
+                                            fillOpacity: 1.0
+	                                     })
     
                              })
 //circulo
