@@ -26,9 +26,10 @@ var MapIcon = L.Icon.extend({
 
   map.on('dblclick',function(e){
     lat = e.latlng.lat;
+    lat2 = lat + 0.003;  
     lon = e.latlng.lng;
 
-    console.log("You clicked the map at LAT: "+ lat+" and LONG: "+lon );
+    console.log("You clicked the map at LAT: "+ lat+" and LONG: "+lon+" and RadioExtremo: "+lat2 );
         //Clear existing marker, 
 
         if (theMarker != undefined) {
