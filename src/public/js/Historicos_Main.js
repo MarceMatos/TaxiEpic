@@ -22,6 +22,7 @@ var MapIcon = L.Icon.extend({
 
 //onclick
  var theMarker = {};
+var circle = {};
 
   map.on('click',function(e){
     lat = e.latlng.lat;
