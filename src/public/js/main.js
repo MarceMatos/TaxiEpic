@@ -58,9 +58,8 @@ function UpdateMap(data){
 
     map.setView([Lat,Lon]);
     marker = L.marker([Lat,Lon]);
-    PolyLine = L.polyline(PolyArray,{color:'red'})
+    PolyLine = L.polyline(PolyArray,{color:'blue'})
     marker.bindPopup("Posición actual");
     map.addLayer(marker);
     map.addLayer(PolyLine);
 }
-
