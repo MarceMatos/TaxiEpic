@@ -40,7 +40,7 @@ var MapIcon = L.Icon.extend({
 
 //circulo
 
- var circle = Wrld.circle([lat,lon], {
+ var circle = Wrld.circle([Lat,Lon], {
           color: "red",
           fillColor: "#f03",
           fillOpacity: 0.6,
