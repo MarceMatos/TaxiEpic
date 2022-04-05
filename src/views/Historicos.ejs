@@ -30,23 +30,23 @@ var drawControl = new L.Control.Draw({
     featureGroup: featureGroup
   },
   draw: {
-    polygon: true,
+    polygon: false,
     polyline: false,
     rectangle: false,
-    circle: false,
+    circle: true,
     marker: false
   }
 }).addTo(map);
 
-map.on('draw:created', showPolygonArea);
-map.on('draw:edited', showPolygonAreaEdited);
+map.on('draw:created', showCircleArea);
+map.on('draw:edited', showCircleAreaEdited);
 
-function showPolygonAreaEdited(e) {
+function showCircleAreaEdited(e) {
   e.layers.eachLayer(function(layer) {
-    showPolygonArea({ layer: layer });
+    showCircleArea({ layer: layer });
   });
 }
-function showPolygonArea(e) {
+function showCircleArea(e) {
   featureGroup.clearLayers();
   featureGroup.addLayer(e.layer);
   e.layer.bindPopup((LGeo.area(e.layer) / 1000000).toFixed(2) + ' km<sup>2</sup>');
