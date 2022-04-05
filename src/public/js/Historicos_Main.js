@@ -34,6 +34,7 @@ var circle2 = {};
 
         if (theMarker != undefined) {
               map.removeLayer(theMarker);
+              map.removeLayer(circle2);
         };
 
     //Add a marker to show where you clicked.
