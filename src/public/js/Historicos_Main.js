@@ -35,18 +35,18 @@ var MapIcon = L.Icon.extend({
         };
 
     //Add a marker to show where you clicked.
-     theMarker = L.marker([lat,lon]).addTo(map);  
+     theMarker = L.marker([lat,lon]).addTo(map);
+     circle = Wrld.circle([lat,lon], {
+          color: "red",
+          fillColor: "#f03",
+          fillOpacity: 0.6,
+          radius: 100.0,  
+                                        }).addTo(map); 
 });
 
 //circulo
 
- var circle = Wrld.circle([10.99849018608676,-74.7987842559814], {
-          color: "red",
-          fillColor: "#f03",
-          fillOpacity: 0.6,
-          radius: 500.0,
-          weight: 10
-      }).addTo(map); 
+ 
 
 
 //id for historics button
