@@ -33,12 +33,12 @@ var MapIcon = L.Icon.extend({
 
         if (theMarker != undefined) {
               map.removeLayer(theMarker);
-              map.removeLayer(circle2);
+              map.removeLayer(circle);
         };
 
     //Add a marker to show where you clicked.
      theMarker = L.marker([lat,lon]).addTo(map);
-     circle = L.circle([lat,lon], 400).addTo(map);
+     circle = L.circle([lat,lon],400).addTo(map);
      
     
     })
