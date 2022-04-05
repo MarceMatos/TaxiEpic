@@ -18,9 +18,42 @@
 
 </head>
 <body>
+
 <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.4.10/leaflet.draw.css' rel='stylesheet' />
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-draw/v0.4.10/leaflet.draw.js'></script>
 <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-geodesy/v0.1.0/leaflet-geodesy.js'></script>
+<script>
+
+            var featureGroup = L.featureGroup().addTo(map);
+
+            var drawControl = new L.Control.Draw({
+              edit: {
+                featureGroup: featureGroup
+              },
+              draw: {
+                polygon: false,
+                polyline: false,
+                rectangle: false,
+                circle: true,
+                marker: false
+              }
+            }).addTo(map);
+
+            map.on('draw:created', showPCircleArea);
+            map.on('draw:edited', showCircleAreaEdited);
+
+            function showCircleAreaEdited(e) {
+              e.layers.eachLayer(function(layer) {
+                showCirclenArea({ layer: layer });
+              });
+            }
+            function showCircleArea(e) {
+              featureGroup.clearLayers();
+              featureGroup.addLayer(e.layer);
+              e.layer.bindPopup((LGeo.area(e.layer) / 1000000).toFixed(2) + ' km<sup>2</sup>');
+              e.layer.openPopup();
+<script>
+
 
     <div name="lateral bar">
         <input type="checkbox" class="checkbox" id="check">
@@ -64,37 +97,7 @@
     <script src="/js/Historicos_Main.js"></script>
 
     <script src="/js/DateTimePicker.js"></script>
-<script>
 
-            var featureGroup = L.featureGroup().addTo(map);
-
-            var drawControl = new L.Control.Draw({
-              edit: {
-                featureGroup: featureGroup
-              },
-              draw: {
-                polygon: false,
-                polyline: false,
-                rectangle: false,
-                circle: true,
-                marker: false
-              }
-            }).addTo(map);
-
-            map.on('draw:created', showPCircleArea);
-            map.on('draw:edited', showCircleAreaEdited);
-
-            function showCircleAreaEdited(e) {
-              e.layers.eachLayer(function(layer) {
-                showCirclenArea({ layer: layer });
-              });
-            }
-            function showCircleArea(e) {
-              featureGroup.clearLayers();
-              featureGroup.addLayer(e.layer);
-              e.layer.bindPopup((LGeo.area(e.layer) / 1000000).toFixed(2) + ' km<sup>2</sup>');
-              e.layer.openPopup();
-<script>
 
 </body>
 </html>
