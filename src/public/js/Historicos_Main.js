@@ -24,10 +24,10 @@ var MapIcon = L.Icon.extend({
  var theMarker = {};
 
   map.on('click',function(e){
-    lati = e.latlng.lat;
-    long = e.latlng.lng;
+    lat = e.latlng.lat;
+    lon = e.latlng.lng;
 
-    console.log("You clicked the map at LAT: "+ lati+" and LONG: "+long );
+    console.log("You clicked the map at LAT: "+ lat+" and LONG: "+lon );
         //Clear existing marker, 
 
         if (theMarker != undefined) {
@@ -35,12 +35,12 @@ var MapIcon = L.Icon.extend({
         };
 
     //Add a marker to show where you clicked.
-     theMarker = L.marker([lati,long]).addTo(map);  
+     theMarker = L.marker([lat,lon]).addTo(map);  
 });
 
 //circulo
 
- var circle = Wrld.circle([lati,long], {
+ var circle = Wrld.circle([lat,lon], {
           color: "red",
           fillColor: "#f03",
           fillOpacity: 0.6,
