@@ -25,7 +25,7 @@ var MapIcon = L.Icon.extend({
 
 var circle2 = {};
 
-  map.on('click',function(e){
+  map.on('dblclick',function(e){
     lat = e.latlng.lat;
     lon = e.latlng.lng;
 
