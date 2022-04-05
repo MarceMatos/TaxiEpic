@@ -14,7 +14,7 @@ map.setView([Lat,Lon],14);
 //Create icon for marker
 var MapIcon = L.Icon.extend({
     options: {
-        iconSize: [10,10],
+        iconSize: [40,40],
         iconAnchor: [22,94],
         popupAnchor: [-3,-76]
     }
@@ -25,7 +25,7 @@ var MapIcon = L.Icon.extend({
 var circle = {};
 var circle2 = {};
 
-  map.on('click',function(e){
+  map.on('dbclick',function(e){
     lat = e.latlng.lat;
     lon = e.latlng.lng;
 
@@ -39,14 +39,15 @@ var circle2 = {};
 
     //Add a marker to show where you clicked.
      theMarker = L.marker([lat,lon]).addTo(map);
-     circle2 = L.circle([lat,lon], 400).addTo(map);
-     circle = Wrld.circle([lat,lon], {
-          color: "red",
-          fillColor: "#f03",
-          fillOpacity: 0.6,
-          radius: 100.0,  
-                                        }).addTo(map); 
-});
+     circle2 = L.CircleMarker([lat,lon], 400).addTo(map);
+     circle = L.circleMarker([lat,lon], {
+		radius: 500.0,
+		fillColor: 'red',
+		color: '#FFFFFF',
+		weight: 2,
+		opacity: 1.0,
+		fillOpacity: 1.0
+	})
 
 //circulo
 
