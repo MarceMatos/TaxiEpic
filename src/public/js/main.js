@@ -131,6 +131,11 @@ TaxiDefiner.addEventListener('change',(event)=>{
     }
     
 })
+<style>
+img.huechange { filter: hue-rotate(120deg); }
+</style>
+
+
 
 //Actualice the table data
 function Actualizar(data){
@@ -152,12 +157,7 @@ function Actualizar(data){
     
 
 }
-    var redIcon = new L.Icon({
-      iconUrl: 'https://github.com/pointhi/leaflet-color-markers/blob/master/img/marker-icon-red.png',
-      iconSize: [25, 41],
-      iconAnchor: [12, 41],
-      popupAnchor: [1, -34],
-    });
+
 
 //Actualice the marker position and poliline
 function UpdateMap(data){
@@ -196,7 +196,8 @@ function UpdateMap(data){
         
     }else if(data[0].ID == 2){
         PolyArrayT2.push([Lat,Lon]);
-        markerT2 = L.marker([Lat,Lon]),{icon: redIcon});
+        markerT2 = L.marker([Lat,Lon]));
+        marker._icon.classList.add("huechange");
         PolyLineT2 = L.polyline(PolyArrayT2,{color:'red'})
         markerT2.bindPopup("Posición actual taxi 2");
 
