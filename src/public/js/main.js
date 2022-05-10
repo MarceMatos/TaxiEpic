@@ -131,9 +131,8 @@ TaxiDefiner.addEventListener('change',(event)=>{
     }
     
 })
-<style>
-img.huechange { filter: hue-rotate(120deg); }
-</style>
+
+
 
 
 
@@ -197,7 +196,6 @@ function UpdateMap(data){
     }else if(data[0].ID == 2){
         PolyArrayT2.push([Lat,Lon]);
         markerT2 = L.marker([Lat,Lon]));
-        marker._icon.classList.add("huechange");
         PolyLineT2 = L.polyline(PolyArrayT2,{color:'red'})
         markerT2.bindPopup("Posición actual taxi 2");
 
