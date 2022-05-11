@@ -5,7 +5,6 @@ L.tileLayer(TileURL).addTo(map);
 PolyArrayT1 = [];
 PolyArrayT2 = [];
 
-
 var greenIcon = new L.Icon({
   iconUrl: 'https://www.nicepng.com/png/full/23-230399_google-maps-pin-png-red-map-marker-png.png',
    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
@@ -15,14 +14,6 @@ var greenIcon = new L.Icon({
   shadowSize: [41, 41]
   
 });
-
-
-
-
-
-
-
-
 
 toggle = document.querySelector(".toggle");
 toggle.addEventListener('click', () => {
