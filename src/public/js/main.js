@@ -7,7 +7,7 @@ PolyArrayT2 = [];
 
 
 var greenIcon = new L.Icon({
-  iconUrl: 'https://github.com/pointhi/leaflet-color-markers/blob/master/img/marker-icon-red.png',
+  iconUrl: 'https://www.nicepng.com/png/full/23-230399_google-maps-pin-png-red-map-marker-png.png',
   
   iconSize: [25, 41],
   iconAnchor: [12, 41],
